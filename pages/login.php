@@ -134,29 +134,29 @@ closeDB($db);
             <!-- /.container -->
         </nav>
 
-        <!-- About Section -->
+        <!-- Reuse About Section -->
         <section id="about" class="about-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 text-center">
                         <h3><span class="red">Log In!</span> Not a pro? <span class="green">Join today and become one!</span></h3>
-                        <form action="" method="POST">
-                            <div class="row form-group text-left">
-                                <div class="col-sm-offset-3 col-sm-6 input-group">
+                        <form class="login-form" action="" method="POST">
+                            <div class="row form-group text-left form-entry">
+                                <div class="col-sm-offset-4 col-sm-4 input-group">
                                     <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
                                     <input class="form-control" type="text" name="user" id="user" placeholder="Username" required autofocus>
                                 </div>
                             </div>
-                            <div class="row form-group text-left">
-                                <div class="col-sm-offset-3 col-sm-6 input-group">
+                            <div class="row form-group text-left form-entry">
+                                <div class="col-sm-offset-4 col-sm-4 input-group">
                                     <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
                                     <input class="form-control" type="password" name="pass" id="pass" placeholder="Password" required>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row form-submission">
                                 <div class="col-sm-offset-3 col-sm-6 input-group">
-                                    <button>Sign In</button>
-                                    <button>Join In</button>
+                                    <button class="login-btn">Sign In</button>
+                                    <button class="signin-btn">Join In</button>
                                 </div>
                             </div>
                         </form>
