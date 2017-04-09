@@ -2,7 +2,6 @@
 
 * {
     transition: all 0.7s;
-
 }
 
 body {
@@ -84,28 +83,24 @@ a:focus {
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
-
 }
 
 @keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
-
 }
 
 @-webkit-keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
-
 }
 
 @-moz-keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
-
 }
 
 /* Page Sections */
@@ -178,6 +173,15 @@ a:focus {
 
 .services-section h3 {
     font-size: 2em;
+}
+
+/* Bootstrap Overrides */
+#user:focus,
+#pass:focus {
+    border: solid 1px #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 /* Mobile Overrides */
