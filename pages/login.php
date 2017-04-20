@@ -36,13 +36,14 @@ if (isset($_POST["login"]) && !empty($_POST["user"]) && !empty($_POST["pass"])) 
     // Update Accordingly
     if ($result != FALSE && isset($result["username"])) {
         $_SESSION["user"] = $result["username"];
-        /* Redirect */
+        header("Location: ./main.php");
+        exit();
     } else {
         $error = "Incorrect Username or Password";
     }
 
 } else if (isset($_POST["register"])
-    && !empty($_POST["mail"])
+    && !empty($_POST["user"])
     && !empty($_POST["pass"])) {
 
     $user = $_POST["user"];
@@ -50,7 +51,7 @@ if (isset($_POST["login"]) && !empty($_POST["user"]) && !empty($_POST["pass"])) 
 
     /* Perform Registration */
     $rawQuery = "
-        INSERT INTO users
+        INSERT INTO users (username, password)
         VALUES (:user, MD5(:pass))
     ";
 
@@ -60,8 +61,10 @@ if (isset($_POST["login"]) && !empty($_POST["user"]) && !empty($_POST["pass"])) 
     $prepQuery->bindParam(":pass", $pass, PDO::PARAM_STR);
     $prepQuery->execute();
 
+    $_SESSION["user"] = $user;
+
     // Redirect
-    header("Location: ./soon2.php");
+    header("Location: ./main.php");
     exit();
 
 }
@@ -155,8 +158,8 @@ closeDB($db);
                             </div>
                             <div class="row form-submission">
                                 <div class="col-sm-offset-3 col-sm-6 input-group">
-                                    <button class="login-btn">Sign In</button>
-                                    <button class="signin-btn">Join In</button>
+                                    <button class="login-btn" type="submit" name="login">Sign In</button>
+                                    <button class="signin-btn" type="submit" name="register">Join In</button>
                                 </div>
                             </div>
                         </form>

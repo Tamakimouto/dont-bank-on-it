@@ -7,4 +7,8 @@ $(function() {
         }
     });
 
+    var search = new Vue({
+
+    });
+
 });
