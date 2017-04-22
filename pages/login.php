@@ -10,7 +10,7 @@ session_start();
 $error = "";
 
 // Get Post Varibles
-$mail = $_POST["mail"];
+$user = $_POST["user"];
 $pass = $_POST["pass"];
 
 // Connect to Database
@@ -21,12 +21,12 @@ if (isset($_POST["login"]) && !empty($_POST["user"]) && !empty($_POST["pass"])) 
 
     $rawQuery = "
         SELECT username FROM users
-        WHERE email=:mail AND password=MD5(:pass)
+        WHERE username=:user AND password=MD5(:pass)
     ";
 
     // Run SQL
     $prepQuery = $db->prepare("$rawQuery");
-    $prepQuery->bindParam(":mail", $mail, PDO::PARAM_STR);
+    $prepQuery->bindParam(":user", $user, PDO::PARAM_STR);
     $prepQuery->bindParam(":pass", $pass, PDO::PARAM_STR);
     $prepQuery->execute();
 

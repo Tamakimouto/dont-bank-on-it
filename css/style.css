@@ -36,6 +36,8 @@ a:focus {
     font-size: 10pt;
 }
 
+
+
 /* Navigation */
 @media(min-width:767px) {
     .navbar {
@@ -77,27 +79,110 @@ a:focus {
     color: #14C867 !important;
 }
 
+
+
+/* Search */
+.find {
+    background: transparent none repeat scroll 0% 0%;
+    border: 2px solid #7b7b7b;
+    border-radius: 8px;
+    font-size: 1.3em;
+    opacity: 0.6;
+    margin-left: 8%;
+    min-height: 50px;
+    padding-left: 10px;
+    transition: all 0.5s;
+    transform: translate(0, 30%);
+    width: 50%;
+}
+
+.find:hover,
+.find:focus {
+    opacity: 0.9;
+    border: 2px solid #14C867;
+}
+
+.qry-enter {
+    background: #14C867 none repeat scroll 0% 0%;
+    color: #D50C41;
+    margin: 0;
+    min-height: 50px;
+    border: 1px solid #14C867;
+    border-radius: 8px;
+    opacity: 1;
+    transform: translate(0, 30%);
+    width: 7%;
+}
+
+.qry-enter:hover {
+    opacity: 1;
+    background: #D50C41 none repeat scroll 0% 0%;
+    border: 1px solid #D50C41;
+    color: #14C867;
+}
+
+
+
+/* App */
+.searchResult p {
+    font-size: 0.8em !important;
+    margin-bottom: 4% !important;
+}
+
+.searchResult > div {
+    animation-delay: 0.5s;
+}
+
+.searchExplain p {
+    margin-bottom: 4% !important;
+}
+
+.searchErr {
+    animation-delay: 0.8s;
+}
+
+.resTitle:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #14C867;
+}
+
+.showMore {
+    animation-delay: 1s;
+    padding: 15px 25px;
+    background-color: #14C867;
+    border: 1px solid #14C867;
+    border-radius: 5px;
+    margin-bottom: 10vh;
+}
+
+.showMore:hover {
+    background-color: rgba(20, 200, 103, 0.6);
+}
+
+
+
 /* Type */
-.typed-cursor{
+.typed-cursor {
     opacity: 1;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
 
-@keyframes blink{
+@keyframes blink {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
 }
 
-@-webkit-keyframes blink{
+@-webkit-keyframes blink {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
 }
 
-@-moz-keyframes blink{
+@-moz-keyframes blink {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
@@ -133,7 +218,7 @@ a:focus {
 }
 
 .about-section {
-    min-height: 100%;
+    min-height: 100vh;
     padding-top: 150px;
     text-align: justify;
     background: #eee;
@@ -239,6 +324,10 @@ a:focus {
 
     .about-section {
         font-size: 1.8em;
+    }
+
+    .qry-enter {
+        width: 20%;
     }
 
 }
