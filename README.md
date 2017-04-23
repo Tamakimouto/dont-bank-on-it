@@ -9,5 +9,12 @@ bank branches in their area based on the number of complaints.
 The user may filter the information based on zip code and/or
 the name of his/her bank.
 
-## Lisense
+## Installation
+- Make sure LAMP Stack is installed.
+- Drop the directory into apache server.
+- Import database located in [bonit.sql](https://github.com/Tamakimouto/dont-bank-on-it/blob/master/db/bonit.sql)
+- Import the data using [branch-import.sql](https://github.com/Tamakimouto/dont-bank-on-it/blob/master/db/branch_import.sql)
+- Change the settings in dbconfig to match your own MySQL server.
+
+## License
 GNU Public Use 3.0
