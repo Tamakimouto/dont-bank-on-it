@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.50, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.7.18, for Linux (i686)
 --
 -- Host: localhost    Database: bonit
 -- ------------------------------------------------------
--- Server version	5.5.50-0+deb8u1
+-- Server version	5.7.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +16,62 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `branches`
+--
+
+DROP TABLE IF EXISTS `branches`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `branches` (
+  `address` varchar(255) DEFAULT NULL,
+  `f1` varchar(55) DEFAULT NULL,
+  `f2` varchar(55) DEFAULT NULL,
+  `f3` varchar(55) DEFAULT NULL,
+  `f4` varchar(55) DEFAULT NULL,
+  `f5` varchar(55) DEFAULT NULL,
+  `f6` varchar(55) DEFAULT NULL,
+  `f7` varchar(55) DEFAULT NULL,
+  `f8` varchar(55) DEFAULT NULL,
+  `f9` varchar(55) DEFAULT NULL,
+  `f10` varchar(55) DEFAULT NULL,
+  `fdicNum` int(11) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `county` varchar(255) DEFAULT NULL,
+  `f11` varchar(55) DEFAULT NULL,
+  `f12` varchar(55) DEFAULT NULL,
+  `f13` varchar(55) DEFAULT NULL,
+  `f14` varchar(55) DEFAULT NULL,
+  `f15` varchar(55) DEFAULT NULL,
+  `f16` varchar(55) DEFAULT NULL,
+  `bank` varchar(255) DEFAULT NULL,
+  `f17` varchar(55) DEFAULT NULL,
+  `f18` varchar(55) DEFAULT NULL,
+  `f19` varchar(55) DEFAULT NULL,
+  `f20` varchar(55) DEFAULT NULL,
+  `state` varchar(50) DEFAULT NULL,
+  `f21` varchar(55) DEFAULT NULL,
+  `f22` varchar(55) DEFAULT NULL,
+  `branchId` int(11) NOT NULL,
+  `zip` int(11) DEFAULT NULL,
+  PRIMARY KEY (`branchId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comments` (
+  `user` varchar(255) DEFAULT NULL,
+  `branchId` int(11) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `users`
 --
 
@@ -27,17 +83,8 @@ CREATE TABLE `users` (
   `password` varchar(32) DEFAULT NULL,
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -48,4 +95,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-08 18:53:58
+-- Dump completed on 2017-04-22 20:38:31

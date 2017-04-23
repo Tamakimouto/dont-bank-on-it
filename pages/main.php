@@ -1,7 +1,8 @@
 <?php
 
 /* Allow Session Use */
-session_start();
+if (!session_id())
+    session_start();
 
 ?>
 
@@ -103,17 +104,49 @@ session_start();
             <!-- Branch Page - Reuse About Section -->
             <section id="about" class="about-section" v-if="page == 2">
                 <div class="container">
-                    <div class="row text-center">
-                        <h2 class="green"> {{ selectedBranch.name }} </h2>
+                    <div class="row text-center branchId">
+                        <h2 class="green branchTitle"> {{ selectedBranch.name }} </h2>
                         <p class="red">
                             {{ selectedBranch.address }};
                             {{ selectedBranch.city }}, {{ selectedBranch.state }} {{ selectedBranch.zip }}
                         </p>
-                        <p>
-                            Branch Identification Number: {{ selectedBranch.bId }} <br>
-                            Company FDIC Number: {{ selectedBranch.id }}
-                        </p>
-                        <h3>Complaints about this bank in the area</h3>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-sm-6">
+                            <p>Branch Identification Number: {{ selectedBranch.bId }}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>Company FDIC Number: {{ selectedBranch.id }}</p>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <div class="row">
+                            <h3 class="branchSub text-center">
+                                What other <span class="red">!</span><span class="green">BONIT</span>
+                                users say about this branch.
+                            </h3>
+                        </div>
+                        <div class="chatroom col-sm-offset-2 col-sm-8" v-if="comments.length > 0">
+                            <div class="row comment" v-for="comment in comments">
+                                <div class="media">
+                                    <div class="media-body comment-item">
+                                        <h4 class="media-heading green"> {{ comment.user }} </h4>
+                                        <p> {{ comment.body }} </p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center" v-if="comments.length == 0"><br><p class="red">No Comments Yet.</p></div>
+                        <div class="row text-center">
+                            <textarea class="comBox" v-model="newComment" rows="1" cols="60" maxlength="255" placeholder="Write your own comment.">
+                            </textarea>
+                            <button class="showMore" @click="addComment()">Submit</button>
+                        </div>
+                    </div>
+                    <div class="complaints">
+                        <h3 class="red branchSub text-center">Complaints about this bank in the area</h3>
+                        <p class="green" v-if="complaints.length == 0">No complaints for this bank in the area! (A good thing)</p>
                         <p v-for="complaint in complaints"> {{ complaint.complaint_what_happened }} </p>
                     </div>
                 </div>

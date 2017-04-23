@@ -16,7 +16,9 @@ $(function() {
             bankQry: "",
             searchRes: [],
             selectedBranch: {},
-            complaints: []
+            newComment: "",
+            comments: [],
+            complaints: [],
         },
         computed: {
             shownBranches() {
@@ -53,6 +55,22 @@ $(function() {
                 var keywords = this.bankQry;
                 this.selectedBranch = branch;
                 this.complaints = [];
+                this.comments = [];
+
+                $.ajax({
+                    url: "util/comment.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        branchId: branch.bId,
+                        action: 0
+                    },
+                    success: function(res) {
+                        res.forEach(function(comment) {
+                            search.comments.push(comment);
+                        });
+                    }
+                });
 
                 $.ajax({
                     url: "https://data.consumerfinance.gov/resource/jhzv-w97w.json",
@@ -69,7 +87,26 @@ $(function() {
                         });
                     }
                 });
+
                 this.page = 2;
+            },
+            addComment: function() {
+                var com = this.newComment;
+                var branch = this.selectedBranch;
+
+                $.ajax({
+                    url: "util/comment.php",
+                    type: "POST",
+                    data: {
+                        branchId: branch.bId,
+                        comment: com,
+                        action: 1
+                    },
+                    success: function(res) {
+                        search.comments.push({user: "You wrote just now", body: com});
+                        search.newComment = "";
+                    }
+                });
             }
         }
     });
