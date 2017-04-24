@@ -19,6 +19,9 @@
 -- Table structure for table `branches`
 --
 
+CREATE DATABASE bonit;
+USE bonit;
+
 DROP TABLE IF EXISTS `branches`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
