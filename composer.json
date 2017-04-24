@@ -1,0 +1,13 @@
+{
+    "name": "tamakimouto/dbonit",
+    "description": "Don't bank on it",
+    "type": "project",
+    "license": "GNU Public Use",
+    "authors": [
+        {
+            "name": "Anthony Zheng",
+            "email": "Anthony@fopen-dream.space"
+        }
+    ],
+    "require": {}
+}
