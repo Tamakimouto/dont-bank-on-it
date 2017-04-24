@@ -2,11 +2,12 @@
 
 function connectDB() {
 
-    /* Connection Configs */
-    $user = "root";
-    $pass = "10068366";
-    $dbname = "bonit";
-    $host = "localhost";
+    /* Connection Settings */
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $host = $url["host"];
+    $user = $url["user"];
+    $pass = $url["pass"];
+    $dbname = substr($url["path"], 1);
 
     try {
         $source = "mysql:host=$host;dbname=$dbname";
